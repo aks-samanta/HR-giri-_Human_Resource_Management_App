@@ -1,4 +1,7 @@
 # dainty-swim-1179
-![HR](https://user-images.githubusercontent.com/101733074/200646964-e9d4d7d2-5d21-49f7-a302-dcd054fdd12c.png)
+<p align="center">
+  <img width="460" height="300" src="[http://www.fillmurray.com/460/300](https://github.com/aks-samanta/dainty-swim-1179/blob/main/com/hrgiri/images/HR.png)">
+</p>
+<br>
 Human Resource Management System
 
