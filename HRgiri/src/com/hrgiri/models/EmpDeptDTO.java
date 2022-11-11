@@ -8,14 +8,14 @@ public class EmpDeptDTO {
 	private String email;
 	private int salary;
 	private String address;
-
+	private String deptHeadName;
 	private String didName;
 	
 	public EmpDeptDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public EmpDeptDTO(int eid, String ename, int deptId, String email, int salary, String address, String didName) {
+	public EmpDeptDTO(int eid, String ename, int deptId, String email, int salary, String address, String didName, String dHeadName) {
 		super();
 		this.eid = eid;
 		this.ename = ename;
@@ -24,6 +24,7 @@ public class EmpDeptDTO {
 		this.salary = salary;
 		this.address = address;
 		this.didName = didName;
+		this.setDeptHeadName(dHeadName);
 	}
 
 	public int getEid() {
@@ -86,6 +87,14 @@ public class EmpDeptDTO {
 	public String toString() {
 		return "EmpDeptDTO [eid=" + eid + ", ename=" + ename + ", deptId=" + deptId + ", email=" + email + ", salary="
 				+ salary + ", address=" + address + ", didName=" + didName + "]";
+	}
+
+	public String getDeptHeadName() {
+		return deptHeadName;
+	}
+
+	public void setDeptHeadName(String deptHeadName) {
+		this.deptHeadName = deptHeadName;
 	}
 
 

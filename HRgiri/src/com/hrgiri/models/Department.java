@@ -3,16 +3,25 @@ package com.hrgiri.models;
 public class Department {
 
 	private int did;
-	private String didName;
+	private String dName;
+	private int dHeadId;
 	
 	public Department() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Department(int did, String didName) {
+	public Department (String dName,int dHeadId) {
+		super();
+		
+		this.dName = dName;
+		this.dHeadId = dHeadId;
+	}
+	
+	public Department(int did, String dName,int dHeadId) {
 		super();
 		this.did = did;
-		this.didName = didName;
+		this.dName = dName;
+		this.dHeadId = dHeadId;
 	}
 
 	public int getDid() {
@@ -23,17 +32,27 @@ public class Department {
 		this.did = did;
 	}
 
-	public String getDidName() {
-		return didName;
+	public String getdName() {
+		return dName;
 	}
 
-	public void setDidName(String didName) {
-		this.didName = didName;
+	public void setdName(String didName) {
+		this.dName = didName;
 	}
+
+	
 
 	@Override
 	public String toString() {
-		return "Department [did=" + did + ", didName=" + didName + "]";
+		return "[Department ID : " + did + " | Department Name : " + dName + "]";
+	}
+
+	public int getdHeadId() {
+		return dHeadId;
+	}
+
+	public void setdHeadId(int dHeadId) {
+		this.dHeadId = dHeadId;
 	}
 	
 	
