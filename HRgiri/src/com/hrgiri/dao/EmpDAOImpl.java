@@ -130,17 +130,17 @@ public class EmpDAOImpl implements EmpDAO{
 	
 	
 	@Override
-	public String updateEmpProfile(String email, String pass, String address, Employee e) throws EmployeeException {
+	public String updateEmpProfile(String email,  String address, Employee e) throws EmployeeException {
 		
 		String message = "Profile Not Updated !";
 		
 		
 		try (Connection conn = DButil.provideConnection()){
-			PreparedStatement ps = conn.prepareStatement("update employee set email = ?, password = ? , address = ? where eid = ?");
+			PreparedStatement ps = conn.prepareStatement("update employee set email = ?, address = ? where eid = ?");
+			
 			ps.setString(1, email);
-			ps.setString(2, pass);
-			ps.setString(3,address);
-			ps.setInt(4, e.getEid());
+			ps.setString(2,address);
+			ps.setInt(3, e.getEid());
 			
 			int res = ps.executeUpdate();
 			
@@ -153,6 +153,40 @@ public class EmpDAOImpl implements EmpDAO{
 		} catch (Exception e1) {
 			throw new EmployeeException(e1.getMessage());
 		}
+		
+		
+		return message;
+	}
+
+
+
+
+
+	
+	
+	@Override
+	public String updateEmpPassword( String newPass, String oldPass, Employee e) throws EmployeeException {
+String message = "Profile Not Updated !";
+		
+		
+		try (Connection conn = DButil.provideConnection()){
+			PreparedStatement ps = conn.prepareStatement("update employee set password = ?  where eid = ? and password = ?");
+			
+			ps.setString(1, newPass);
+			ps.setInt(2, e.getEid());
+			ps.setString(3, oldPass);
+			
+			int res = ps.executeUpdate();
+			
+			if(res > 0) {
+				message = ("Password Updated Successfully !");
+			}
+			else {
+				throw new EmployeeException("You entered Wrong Old Password, Please try again...");
+			}
+		} catch (SQLException e1) {
+			throw new EmployeeException(e1.getMessage());
+		} 
 		
 		
 		return message;
