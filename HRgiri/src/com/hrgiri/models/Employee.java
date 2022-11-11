@@ -15,25 +15,24 @@ public class Employee {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Employee( String ename, int deptId, String email, String password, int salary, String address) {
+	public Employee( String ename, int deptId, String email, int salary, String address) {
 		super();
 		this.ename = ename;
 		this.deptId = deptId;
 		this.email = email;
-		this.password = password;
 		this.salary = salary;
 		this.address = address;
 	}
 	
-	public Employee(int eid, String ename, int deptId, String email, String password, int salary, String address) {
+	public Employee(int eid, String ename, int deptId, String email, int salary, String address, int leaveLeft) {
 		super();
 		this.eid = eid;
 		this.ename = ename;
 		this.deptId = deptId;
 		this.email = email;
-		this.password = password;
 		this.salary = salary;
 		this.address = address;
+		this.leavesLeft = leaveLeft;
 	}
 
 	public int getEid() {
