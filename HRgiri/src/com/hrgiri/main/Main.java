@@ -6,6 +6,7 @@ import java.util.Scanner;
 import com.hrgiri.models.Employee;
 import com.hrgiri.usecase.AddNewDeptUsecase;
 import com.hrgiri.usecase.AdminLoginUsecase;
+import com.hrgiri.usecase.ChangePasswordUsecase;
 import com.hrgiri.usecase.EmployeeDeptTransferUsecase;
 import com.hrgiri.usecase.EmployeeLoginUsecase;
 import com.hrgiri.usecase.RegisterNewEmpUsecase;
@@ -219,12 +220,12 @@ public class Main {
 		break;
 		case 2 : {
 			UpdateProfileUsecase.updateProfile(sc,emp);
-			employeeFeatures(emp);
+			adminOrEmployee(sc);
 		}
 		break;
 		case 3 : {
-			ViewProfileUsecase.showEmpProfile(emp);
-			employeeFeatures(emp);
+			ChangePasswordUsecase.changePassword(sc, emp);
+			adminOrEmployee(sc);
 		}
 		break;
 		

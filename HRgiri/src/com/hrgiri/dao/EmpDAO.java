@@ -11,7 +11,7 @@ public interface EmpDAO {
 	
 	public String transferEmpToOtherDept(int empId, int newDeptId) throws EmployeeException;
 	
-	public String updateEmpProfile(String email, String pass, String address, Employee e) throws EmployeeException;
+	public String updateEmpProfile(String email, String address, Employee e) throws EmployeeException;
 	
-	
+	public String updateEmpPassword(  String newPass, String oldPass, Employee e) throws EmployeeException;
 }
