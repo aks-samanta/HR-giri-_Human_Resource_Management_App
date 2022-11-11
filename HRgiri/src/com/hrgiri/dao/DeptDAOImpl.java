@@ -17,27 +17,37 @@ public class DeptDAOImpl implements DeptDAO {
 	@Override
 	public String addDeptToDB(Department d) throws DepartmentException {
 		String message = "Adding";
-		
+		PreparedStatement ps = null;
 		try (Connection conn = DButil.provideConnection()){
-			
-			PreparedStatement ps = conn.prepareStatement("insert into department values (?,?,?)");
-			
-			
-			ps.setInt(1, d.getDid());
-			ps.setString(2, d.getdName());
-			ps.setInt(3, d.getdHeadId());
-			
+			if(d.getdHeadId() == 0) {
+
+				 ps = conn.prepareStatement("insert into department values (?,?, NULL)");
+				 
+				ps.setInt(1, d.getDid());
+				ps.setString(2, d.getdName());
+		
+	  		}
+			else {
+				 ps = conn.prepareStatement("insert into department values (?,?,?)");
+				 
+				ps.setInt(1, d.getDid());
+				ps.setString(2, d.getdName());
+				ps.setInt(3, d.getdHeadId());
+			}
 			
 			int rowsEffected = ps.executeUpdate();
 			
 			if(rowsEffected > 0) {
 				message = "Department Added Successfully"; 
 			}
+			else {
+				throw new DepartmentException("Department Head must be an employee");
+			}
 			
 			
 		} catch (SQLException e) {
 //			e.printStackTrace();
-			throw new DepartmentException(e.getMessage());
+			throw new DepartmentException("Department Head must be an employee");
 		}
 		
 		
@@ -75,10 +85,6 @@ public class DeptDAOImpl implements DeptDAO {
 	}
 
 
-
-	
-	
-	
 	
 	@Override
 	public List<Department> getAllDept() throws DepartmentException {
@@ -103,6 +109,74 @@ public class DeptDAOImpl implements DeptDAO {
 		return deptList;
 	}
 
+
+
+	
+	
+	
+	
+	@Override
+	public String updateDeptName(String newDeptName, int deptId) throws DepartmentException {
+		String message = "Department Name NOT Updated";
+		
+		
+		try (Connection conn = DButil.provideConnection()){
+			PreparedStatement ps = conn.prepareStatement("Update department set dname = ? where did = ?");
+			ps.setString(1, newDeptName);
+			ps.setInt(2, deptId);
+			
+			int result = ps.executeUpdate();
+			
+			if(result < 1) {
+				throw new DepartmentException("Wrong Department ID selected Or New Department Name too long.");
+				
+			}
+			else {
+				message = "Department Name is Successfully Updated !!";
+			}
+		} catch (SQLException e) {
+			throw new DepartmentException(e.getMessage());
+		}
+		
+		
+		return message;
+	}
+
+
+
+	
+	
+	
+	
+	@Override
+	public String updateDeptHead(int newDeptHeadEmpId, int deptId) throws DepartmentException {
+String message = "Department Head NOT Updated";
+		
+		
+		try (Connection conn = DButil.provideConnection()){
+			PreparedStatement ps = conn.prepareStatement("Update department set d_Head_Id = ? where did = ?");
+			ps.setInt(1, newDeptHeadEmpId);
+			ps.setInt(2, deptId);
+			
+			int result = ps.executeUpdate();
+			
+			if(result < 1) {
+				throw new DepartmentException("Wrong Department ID selected Or New Department Head is not an Existing Employee.");
+				
+			}
+			else {
+				message = "Department Head is Successfully Updated !!";
+			}
+		} catch (SQLException e) {
+			throw new DepartmentException(e.getMessage());
+		}
+		
+		
+		return message;
+	}
+
+	
+	
 	
 	
 	

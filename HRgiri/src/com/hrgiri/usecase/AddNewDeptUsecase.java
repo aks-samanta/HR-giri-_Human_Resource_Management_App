@@ -8,16 +8,17 @@ import com.hrgiri.models.Department;
 
 public class AddNewDeptUsecase {
 
-	public static String addNewDept(Scanner sc) {
-		String message = "Adding new Dept....";
+	public static void addNewDept(Scanner sc) {
 		
 		
-		System.out.println("Adding New Department");
+		
+		System.out.println("Add New Department");
 		System.out.println("Enter Department ID :- ");
   		int did = sc.nextInt();
   		System.out.println("Enter Department Name :- ");
   		String  dName = sc.next();
   		System.out.println("Enter Employee ID of Department Head :- ");
+  		System.out.println("Note : if Department Head is not assigned yet, enter 0, You can Update Department later.");
   		int dHeadId = sc.nextInt();
   		
   		
@@ -30,9 +31,11 @@ public class AddNewDeptUsecase {
 			System.out.println(result);
 		} catch (Exception e) {
 			// TODO: handle exception
+		System.out.println("Department not Added ! ");
+		System.out.println(e.getMessage());
 		}
   		
-  		return message;
+  		
 	}
 
 }

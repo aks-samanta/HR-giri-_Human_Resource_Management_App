@@ -3,6 +3,8 @@ package com.hrgiri.usecase;
 
 import com.hrgiri.dao.DeptDAO;
 import com.hrgiri.dao.DeptDAOImpl;
+import com.hrgiri.dao.EmpDAO;
+import com.hrgiri.dao.EmpDAOImpl;
 import com.hrgiri.dao.EmpDeptDAO;
 import com.hrgiri.dao.EmpDeptDAOImpl;
 import com.hrgiri.exceptions.DepartmentException;
@@ -12,7 +14,7 @@ import com.hrgiri.models.Employee;
 public class ViewProfileUsecase {
 	
 	public static void showEmpProfile(Employee emp) {
-	
+		
 		System.out.println( " Employee ID      		: "+ emp.getEid());
 		System.out.println( " Department ID    		: "+ emp.getDeptId());
 		System.out.println( " Name             		: "+ emp.getEname());
