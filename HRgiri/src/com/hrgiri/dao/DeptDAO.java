@@ -12,4 +12,8 @@ public interface DeptDAO {
 	public Department getDeptFromDB(int deptId) throws DepartmentException;
 	
 	public List<Department> getAllDept() throws DepartmentException;
+	
+	public String updateDeptName(String newDeptName, int deptId) throws DepartmentException;
+	
+	public String updateDeptHead(int newDeptHeadEmpId, int deptId) throws DepartmentException;
 }

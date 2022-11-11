@@ -24,6 +24,15 @@ public class Employee {
 		this.address = address;
 	}
 	
+	public Employee(String ename, int deptId, String email, String password, int salary) {
+		super();
+		this.ename = ename;
+		this.deptId = deptId;
+		this.email = email;
+		this.password = password;
+		this.salary = salary;
+	}
+
 	public Employee(int eid, String ename, int deptId, String email, int salary, String address, int leaveLeft) {
 		super();
 		this.eid = eid;

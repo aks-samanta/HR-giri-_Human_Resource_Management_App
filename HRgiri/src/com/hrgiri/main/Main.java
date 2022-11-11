@@ -6,7 +6,11 @@ import java.util.Scanner;
 import com.hrgiri.models.Employee;
 import com.hrgiri.usecase.AddNewDeptUsecase;
 import com.hrgiri.usecase.AdminLoginUsecase;
+import com.hrgiri.usecase.EmployeeDeptTransferUsecase;
 import com.hrgiri.usecase.EmployeeLoginUsecase;
+import com.hrgiri.usecase.RegisterNewEmpUsecase;
+import com.hrgiri.usecase.UpdateDeptUsecase;
+import com.hrgiri.usecase.UpdateProfileUsecase;
 import com.hrgiri.usecase.ViewAllDeptUsecase;
 import com.hrgiri.usecase.ViewProfileUsecase;
 
@@ -17,27 +21,25 @@ public class Main {
 	
 	static Scanner sc = new Scanner(System.in);
 	
-	static void adminOrEmployee() {
+	static void adminOrEmployee(Scanner sc) {
 		System.out.println("+----------------------------+" + "\n"
 						 						   + "| 1. Login As Admin          |" + "\n"
 					 	 						   + "| 2. Login As Employee       |" + "\n"
 						 						   + "| 3. Quit HRगिरी		     |" + "\n"
 						 						   + "+----------------------------+" );
-		choice();
+		choice(sc);
 	}
 	
-	static void choice() {
+	static void choice(Scanner sc) {
 		
-			int choice = 0;
-			
+		int choice =0;
 			try {
-				choice = sc.nextInt();
-		
+				 choice = Integer.parseInt(sc.next()) ;
+			} catch (Exception e) {
+				
+				System.out.println("Your Choice must be a number");
 			}
-			catch (InputMismatchException e) {
-				System.out.println( "Input type should be number" );
-				adminOrEmployee();
-			}
+
 			
 			if (choice == 1) {
 				System.out.println( "Welcome Admin ! Please Login to your account");
@@ -51,9 +53,12 @@ public class Main {
 				System.out.println("Ok bye !!");
 				System.exit(0);
 			}
+			else if(choice <1 || choice > 3){
+				System.out.println("Please choose a number from the options below");
+				adminOrEmployee(sc);
+			}
 			else {
-				System.out.println("Please choose a number from below options");
-				adminOrEmployee();
+				System.out.println( "Input type should be number" );
 			}
 			
 		} 
@@ -65,7 +70,7 @@ public class Main {
 
 		if (result) adminFeatures();
 		else {
-			AdminLogin();
+			adminOrEmployee(sc);
 		}
 	}
 	
@@ -82,11 +87,17 @@ public class Main {
 						 + "+------------------------------------------+" );
 		
 	
-			int choice = 0;
+		int choice =0;
+		
+		
+		try {
+			 choice = Integer.parseInt(sc.next()) ;
+		} catch (Exception e) {
 			
-			try {
-				choice = sc.nextInt();
-			
+			System.out.println("Your Choice must be a number");
+		}
+		
+		
 				if (choice < 1 || choice > 8) {
 					System.out.println("Please choose a number from below options");
 					adminFeatures();
@@ -96,14 +107,8 @@ public class Main {
 					adminChoice(choice);
 				}
 			}
-			catch (InputMismatchException e) {
-				
-				System.out.println("Input type should be number");
-				adminFeatures();
-				
-			}
 			
-		}
+		
 	
 	
 	static void adminChoice(int choice) {
@@ -123,25 +128,27 @@ public class Main {
 				
 				case 3 : {
 					ViewAllDeptUsecase.viewAllDept();
-					AddNewDeptUsecase.addNewDept(sc);
+					System.out.println("Enter the Department Id of the Department you choose to Update : ");
+					int deptId = sc.nextInt();
+					UpdateDeptUsecase.updateDepartment(deptId,sc);
 					adminFeatures();
 				}
 				break;
 				
 				case 4 : {
-					AddNewDeptUsecase.addNewDept(sc);
+					RegisterNewEmpUsecase.registerNewEmp(sc);
 					adminFeatures();
 				}
 				break;
 				
 				case 5 : {
-					AddNewDeptUsecase.addNewDept(sc);
+					EmployeeDeptTransferUsecase.transferDept(sc);
 					adminFeatures();
 				}
 				break;
 				
 				case 6 : {
-					adminOrEmployee();
+					adminOrEmployee(sc);
 				}
 				break;
 				
@@ -161,7 +168,7 @@ public class Main {
 		Employee emp = EmployeeLoginUsecase.empLogin(sc);
 		
 		if (emp == null) {
-			adminOrEmployee();
+			adminOrEmployee(sc);
 		}
 		else {
 			System.out.println( "Login Successfull" );
@@ -184,25 +191,23 @@ public class Main {
 				         + "| 7. Logout                      |" + "\n"
 				         + "| 8. Quit HRगिरी                   |" + "\n"
 				         + "+--------------------------------+" );
-		
-		
-			int choice = 0;
-			try {
-				choice = sc.nextInt();
-				
+	
+		int choice = 0;
+		try {
+			 choice = Integer.parseInt(sc.next()) ;
+		} catch (Exception e) {
+			
+			System.out.println("Your Choice must be a number");
+		}
 				if (choice < 1 || choice > 8) {
 					System.out.println("Please choose a number from below options (Only enter the serial number, eg: 1)");
 					employeeFeatures(emp);
 				}
 				else empChoice(choice, emp);
 			}
-			catch (InputMismatchException e) {
-				
-				System.out.println("Input type should be a number (Only enter the serial number, eg: 1)"  );
-				employeeFeatures(emp);
-			}
+	
 //			
-		}
+		
 	
 	
 	static void empChoice(int choice, Employee emp) {
@@ -213,7 +218,7 @@ public class Main {
 		}
 		break;
 		case 2 : {
-			ViewProfileUsecase.showEmpProfile(emp);
+			UpdateProfileUsecase.updateProfile(sc,emp);
 			employeeFeatures(emp);
 		}
 		break;
@@ -244,7 +249,7 @@ public class Main {
 	
 		
 		case 7 : {
-			adminOrEmployee();
+			adminOrEmployee(sc);
 		}
 		break;
 		case 8 : {
@@ -259,7 +264,7 @@ public class Main {
 		System.out.println();
 		System.out.println("-------------------------| HRगिरी |-------------------------");
 		System.out.println();
-		adminOrEmployee();
+		adminOrEmployee(sc);
 		sc.close();
 				
 	}	
