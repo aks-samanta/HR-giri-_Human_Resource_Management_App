@@ -26,11 +26,14 @@ public class EmployeeLoginUsecase {
 			
 			try {
 				emp = dao.getEmpfromDB(email, password);
-				
-				System.out.println("Welcome " + emp.getEname());
+				System.out.println();
+				System.out.println("✔✔✔✔✔✔✔✔✔✔✔| "+emp.getEname()+" Logged In Successfully !! |✔✔✔✔✔✔✔✔✔✔✔");
+				System.out.println();
 			} catch (EmployeeException e) {
 				
-				System.out.println(e.getMessage());
+				System.out.println();
+				System.out.println("✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘| Oops!! Wrong Password!! Try Again... |✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘");
+				System.out.println();
 			}
 		}
 		catch (InputMismatchException e) {
