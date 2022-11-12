@@ -20,9 +20,12 @@ public class ChangePasswordUsecase {
 		EmpDAO dao = new EmpDAOImpl();
 		
 			try {
+				String ans = dao.updateEmpPassword( newPass,oldPass,e);
 				
-				System.out.println(dao.updateEmpPassword( newPass,oldPass,e));
-				System.out.println("Please Login again with the new password");
+				System.out.println(ans);
+				if(ans.equals("Password Updated Successfully !")) {
+					e.setPassword(newPass);
+				}
 				
 				
 			} catch (EmployeeException e1) {

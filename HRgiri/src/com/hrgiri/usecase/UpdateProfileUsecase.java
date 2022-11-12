@@ -20,8 +20,13 @@ public class UpdateProfileUsecase {
 		EmpDAO dao = new EmpDAOImpl();
 		
 		try {
-			System.out.println(dao.updateEmpProfile(email, address, e));
-			System.out.println("Please Login Again to view the Updated Profile");
+			String ans = dao.updateEmpProfile(email, address, e);
+			System.out.println(ans);
+			
+			if(ans.equals("Profile Updated Successfully !")) {
+				e.setAddress(address);
+				e.setEmail(email);
+			}
 			
 			
 		} catch (EmployeeException e1) {
