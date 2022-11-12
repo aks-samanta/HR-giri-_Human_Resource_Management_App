@@ -51,7 +51,9 @@ public class Main {
 				employeeLogin();
 			}
 			else if (choice == 3) {
-				System.out.println("Ok bye !!");
+				System.out.println();
+				System.out.println("-------------------------| HRगिरी |-------------------------");
+				System.out.println();
 				System.exit(0);
 			}
 			else if(choice <1 || choice > 3){
@@ -266,8 +268,11 @@ public class Main {
 		System.out.println("-------------------------| HRगिरी |-------------------------");
 		System.out.println();
 		adminOrEmployee(sc);
+		System.out.println();
+		System.out.println("-------------------------| HRगिरी |-------------------------");
+		System.out.println();
 		sc.close();
-				
+		
 	}	
 
 }
