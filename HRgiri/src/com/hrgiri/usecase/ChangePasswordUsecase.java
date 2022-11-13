@@ -21,8 +21,10 @@ public class ChangePasswordUsecase {
 		
 			try {
 				String ans = dao.updateEmpPassword( newPass,oldPass,e);
-				
-				System.out.println(ans);
+				System.out.println();
+				System.out.println("✔✔✔✔✔✔✔✔✔✔✔| "+ans+" |✔✔✔✔✔✔✔✔✔✔✔");
+				System.out.println();
+			
 				if(ans.equals("Password Updated Successfully !")) {
 					e.setPassword(newPass);
 				}
@@ -30,7 +32,13 @@ public class ChangePasswordUsecase {
 				
 			} catch (EmployeeException e1) {
 //				e1.printStackTrace();
-				System.out.println(e1.getMessage());
+				System.out.println();
+				System.out.println("✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘| Password NOT Updated! |✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘");
+				System.out.println();
+				System.out.println();
+				System.out.println("✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘| "+e1.getMessage() +" |✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘");
+			
+				
 			}
 		}
 		

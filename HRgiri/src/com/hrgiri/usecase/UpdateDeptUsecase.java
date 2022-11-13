@@ -25,26 +25,39 @@ public class UpdateDeptUsecase {
 			System.out.println("Enter the Employee ID of the new Employee head : ");
 			int newEmpId = sc.nextInt();
 			try {
-				dao.updateDeptHead(newEmpId, deptId);
+				System.out.println();
+				
+				System.out.println("✔✔✔✔✔✔✔✔✔✔✔| " + dao.updateDeptHead(newEmpId, deptId) + " |✔✔✔✔✔✔✔✔✔✔✔");
+				System.out.println();
+				
 			} catch (DepartmentException e) {
 				
-//				e.printStackTrace();
-				System.out.println(e.getMessage());
+				System.out.println();
+				System.out.println("✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘| " + e.getMessage() + " |✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘");
+				System.out.println();
+
 			}
 		}
 		else if(nameOrHead == 1) {
 			System.out.println("Enter the New Department name :");
-			String newDname = sc.next();
+			sc.nextLine();
+			String newDname = sc.nextLine();
 			try {
-			System.out.println(dao.updateDeptName(newDname, deptId));
+				System.out.println();
+				System.out.println("✔✔✔✔✔✔✔✔✔✔✔| " + dao.updateDeptName(newDname, deptId) + " |✔✔✔✔✔✔✔✔✔✔✔");
+				System.out.println();
 		
 			} catch (DepartmentException e) {
 				
-				System.out.println(e.getMessage());
+				System.out.println();
+				System.out.println("✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘| " + e.getMessage() + " |✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘");
+				System.out.println();
 			}
 		}
 		else {
-			System.out.println("Select from the given Options.");
+			System.out.println();
+			System.out.println("✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘| Select from the given Options. |✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘");
+			System.out.println();
 			updateDepartment(deptId, sc);
 		}
 		

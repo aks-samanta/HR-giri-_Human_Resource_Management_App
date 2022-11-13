@@ -22,6 +22,8 @@ public class Main {
 	static Scanner sc = new Scanner(System.in);
 
 	static void adminOrEmployee(Scanner sc) {
+		System.out.println();
+		System.out.println("Choose from the below Options : ");
 		System.out.println("+----------------------------+" + "\n" + "| 1. Login As Admin          |" + "\n"
 				+ "| 2. Login As Employee       |" + "\n" + "| 3. Quit HRगिरी		     |" + "\n"
 				+ "+----------------------------+");

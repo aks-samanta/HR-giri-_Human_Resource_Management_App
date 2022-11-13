@@ -44,11 +44,16 @@ public class RespondToLeaveRequestUsecase {
 					int choice = sc.nextInt();
 					
 					LeaveDAO dao2 = new LeaveDAOImpl();
-					System.out.println(dao2.approveRejectLeaves(lid, choice));
+					
+					System.out.println();
+					System.out.println("✔✔✔✔✔✔✔✔✔✔✔| " + dao2.approveRejectLeaves(lid, choice) + " |✔✔✔✔✔✔✔✔✔✔✔");
+					System.out.println();
 					
 				} catch (InputMismatchException e) {
+					System.out.println();
+					System.out.println("✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘| " + e.getMessage() + " |✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘");
+					System.out.println();
 					
-					System.out.println(e.getMessage());
 				}
 				
 				
