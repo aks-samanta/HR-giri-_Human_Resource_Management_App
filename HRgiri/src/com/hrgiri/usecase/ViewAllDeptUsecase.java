@@ -28,7 +28,9 @@ public class ViewAllDeptUsecase {
 			
 		} catch (DepartmentException e) {
 		
-			System.out.println(e.getMessage());
+			System.out.println();
+			System.out.println("✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘| " + e.getMessage() + " |✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘");
+			System.out.println();
 		}
 	}
 }

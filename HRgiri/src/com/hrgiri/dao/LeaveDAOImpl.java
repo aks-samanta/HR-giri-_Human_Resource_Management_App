@@ -153,6 +153,8 @@ public class LeaveDAOImpl implements LeaveDAO {
 				}
 				else if(choice == 2) {
 					message = "Leave Request Rejected";
+					
+					
 				}
 				
 			}

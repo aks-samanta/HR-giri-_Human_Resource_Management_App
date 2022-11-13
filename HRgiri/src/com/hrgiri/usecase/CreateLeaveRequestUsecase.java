@@ -31,7 +31,12 @@ public class CreateLeaveRequestUsecase {
 			 startdate = LocalDate.parse(from, dtf);
 			from = startdate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 		}catch (Exception e){
-			System.out.println("Please pass the leave Start date in proper format.");
+			
+			System.out.println();
+			System.out.println("✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘| Please pass the leave Start date in proper format. |✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘");
+			System.out.println();
+
+		
 		}
 		try {
 			 enddate = LocalDate.parse(till, dtf);
@@ -44,21 +49,32 @@ public class CreateLeaveRequestUsecase {
 					LeaveDAO dao = new LeaveDAOImpl();
 					try {
 						String ans = dao.addLeavetoDB(leave, noOfDays);
-						System.out.println(ans);
+						System.out.println();
+						System.out.println("✔✔✔✔✔✔✔✔✔✔✔| "+ans+" |✔✔✔✔✔✔✔✔✔✔✔");
+						System.out.println();
 						if(ans.equals("Leave Applied and remaining leaves updated Successfully!")) {
 							emp.setLeavesLeft(emp.getLeavesLeft() - noOfDays);
 						}
 						
 					} catch (LeaveException e) {
-						System.out.println(e.getMessage());
+						
+						System.out.println();
+						System.out.println("✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘| "+e.getMessage() +" |✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘");
+						System.out.println();
 					}
 			 }
 			 else {
-				 System.out.println("Start Date cannot come after end Date!");
+				    System.out.println();
+					System.out.println("✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘| Start Date cannot come after end Date! |✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘");
+					System.out.println();
+				 
 			 }
 			
 		}catch (Exception e){
-			System.out.println("Please pass the Leave End date in proper format.");
+		
+			System.out.println();
+			System.out.println("✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘| Please pass the Leave End date in proper format. |✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘");
+			System.out.println();
 			}
 		
 		

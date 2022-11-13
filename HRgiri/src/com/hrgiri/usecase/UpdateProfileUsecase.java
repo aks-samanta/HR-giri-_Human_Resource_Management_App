@@ -21,7 +21,10 @@ public class UpdateProfileUsecase {
 		
 		try {
 			String ans = dao.updateEmpProfile(email, address, e);
-			System.out.println(ans);
+			System.out.println();
+			System.out.println("✔✔✔✔✔✔✔✔✔✔✔| " + ans + " |✔✔✔✔✔✔✔✔✔✔✔");
+			System.out.println();
+
 			
 			if(ans.equals("Profile Updated Successfully !")) {
 				e.setAddress(address);
@@ -30,8 +33,9 @@ public class UpdateProfileUsecase {
 			
 			
 		} catch (EmployeeException e1) {
-//			e1.printStackTrace();
-			System.out.println(e1.getMessage());
+			System.out.println();
+			System.out.println("✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘| " + e1.getMessage() + " |✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘ ✘");
+			System.out.println();
 		}
 		
 		
