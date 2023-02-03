@@ -17,3 +17,15 @@
  <p align="center">
   <img width="960" height="650" src="HRgiri/bin/com/hrgiri/images/HR-giri ERD.png">
 </p>
+
+
+
+## Description 
+
+HR-giri is a web-based application designed to simplify HR management. Employees can request leaves and monitor their status, while administrators have tools to manage departments and respond to leave requests.
+
+### Features:
+- Employee leave request and status tracking.
+- Department management and employee assignments for administrators.
+
+HR-giri streamlines HR processes, making it easier for both employees and administrators. With its user-friendly interface and efficient features, HR-giri is a valuable tool for any organization looking to simplify HR management.
