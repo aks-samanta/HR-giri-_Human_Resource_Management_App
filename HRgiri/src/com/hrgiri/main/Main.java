@@ -79,9 +79,8 @@ public class Main {
 				+ "\n" + "| 2. View All Departments                  |" + "\n"
 				+ "| 3. Update Department                     |" + "\n" + "| 4. Register New Employee                 |"
 				+ "\n" + "| 5. Transfer Employee to other Department |" + "\n"
-				+ "| 6. Respond To Leaves                     |" + "\n"
-				+ "| 7. Logout                                |" + "\n"
-				+ "| 8. Quit HRगिरी                             |" + "\n"
+				+ "| 6. Respond To Leaves                     |" + "\n" + "| 7. Logout                                |"
+				+ "\n" + "| 8. Quit HRगिरी                             |" + "\n"
 				+ "+------------------------------------------+");
 
 		int choice = 0;
@@ -166,7 +165,7 @@ public class Main {
 		if (emp == null) {
 			adminOrEmployee(sc);
 		} else {
-			
+
 			employeeFeatures(emp);
 		}
 
@@ -175,7 +174,7 @@ public class Main {
 	static void employeeFeatures(Employee emp) {
 		System.out.println();
 		System.out.println("Choose from the below Options : ");
-		System.out.println("+--------------------------------+"  + "\n" + "| 1. View Profile                |" + "\n"
+		System.out.println("+--------------------------------+" + "\n" + "| 1. View Profile                |" + "\n"
 				+ "| 2. Update Profile              |" + "\n" + "| 3. Change Password             |" + "\n"
 				+ "| 4. Apply for Leave             |" + "\n" + "| 5. View Leave Request Status   |" + "\n"
 				+ "| 6. View Leave Request History  |" + "\n" + "| 7. Logout                      |" + "\n"
